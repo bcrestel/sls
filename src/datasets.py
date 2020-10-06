@@ -8,6 +8,7 @@ from src import utils as ut
 
 def get_dataset(dataset_name, train_flag, datadir, exp_dict):
     if dataset_name == "mnist":
+        # bc: transform the data to center them between -1. and 1. (original image between 0. and 1.)
         dataset = torchvision.datasets.MNIST(datadir, train=train_flag,
                                download=True,
                                transform=torchvision.transforms.Compose([
@@ -17,6 +18,7 @@ def get_dataset(dataset_name, train_flag, datadir, exp_dict):
                                ]))
 
     if dataset_name == "cifar10":
+        # bc: the values of the normalization should be the actual mean and stdev of the cifar10 dataset
         transform_function = transforms.Compose([
             transforms.RandomCrop(32, padding=4),
             transforms.RandomHorizontalFlip(),

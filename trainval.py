@@ -28,6 +28,7 @@ cudnn.benchmark = True
 
 
 def trainval(exp_dict, savedir, datadir, metrics_flag=True):
+    # TODO: Do we get similar results with different seeds?
     # Set seed
     np.random.seed(42)
     torch.manual_seed(42)
